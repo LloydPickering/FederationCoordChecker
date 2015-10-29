@@ -52,13 +52,11 @@ namespace XbimFederationChecker
             };
             worker.ProgressChanged += delegate (object s, ProgressChangedEventArgs args)
             {
-                listBox.Items.Add(String.Format("{0}% {1}", args.ProgressPercentage, (string)args.UserState));
-                listBox.ScrollIntoView(listBox.Items[listBox.Items.Count - 1]); 
+                status.Text = String.Format("{0}% {1}", args.ProgressPercentage, (string)args.UserState);
             };
             worker.RunWorkerCompleted += delegate (object s, RunWorkerCompletedEventArgs args)
             {
                 var Results = args.Result as List<Result>;
-                //MessageBox.Show("Found "+Results.Count+" results");
                 var win = new ResultWindow(Results);
                 win.Show();
             };
@@ -84,9 +82,6 @@ namespace XbimFederationChecker
                     var m3d = new Xbim.ModelGeometry.Scene.Xbim3DModelContext(m);
                     m3d.CreateContext(XbimGeometry.Interfaces.XbimGeometryType.PolyhedronBinary, worker.ReportProgress);
                     var region = m3d.GetLargestRegion();
-
-                    //string json = JsonConvert.SerializeObject(region, Formatting.Indented);
-                    //File.WriteAllText(args[2], json);
                     Results.Add(new Result(f.Name, region));
                 }
                 worker.ReportProgress(0, String.Format("Completed Processing of {0}", f.Name));

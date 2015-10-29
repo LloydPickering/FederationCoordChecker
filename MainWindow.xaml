@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:XbimFederationChecker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="109" Width="525">
     <Grid>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="241" Margin="10,68,0,0" VerticalAlignment="Top" Width="497"/>
         <Button x:Name="button" Content="Browse..." HorizontalAlignment="Left" Margin="432,10,0,0" VerticalAlignment="Top" Width="75" Height="24" Click="browse_Click"/>
         <Button x:Name="button1" Content="Start" HorizontalAlignment="Left" Margin="432,39,0,0" VerticalAlignment="Top" Width="75"  Height="24" Click="start_Click"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="24" Margin="10,10,0,0" TextWrapping="Wrap" Text="Directory Path To Ifc/IfcZips..." VerticalAlignment="Top" Width="417"/>
+        <TextBox x:Name="status" HorizontalAlignment="Left" Height="24" Margin="10,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="417" IsReadOnlyCaretVisible="True" IsReadOnly="True" IsUndoEnabled="False" Background="#FFDDDDDD"/>
 
     </Grid>
 </Window>

@@ -5,22 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:XbimFederationChecker"
         mc:Ignorable="d"
-        Title="Results" Height="951.351" Width="615.315">
+        Title="Results" Height="768" Width="1200">
     <Grid>
-        <DataGrid x:Name="dataGrid">
-            <!--<DataGrid.Columns>
-                <DataGridTextColumn Header="Model" Binding="{Binding ModelName}" />
-                <DataGridTextColumn Header="World Coordinate Offset X" Binding="{Binding Value.WorldCoordinateSystem.OffsetX}" />
-                <DataGridTextColumn Header="World Coordinate Offset Y" Binding="{Binding Value.WorldCoordinateSystem.OffsetY}" />
-                <DataGridTextColumn Header="World Coordinate Offset Z" Binding="{Binding Value.WorldCoordinateSystem.OffsetZ}" />
-                <DataGridTextColumn Header="Model Size X" Binding="{Binding Value.Size}" />
-                <DataGridTextColumn Header="Model Size Y" Binding="{Binding Value.Size.Y}" />
-                <DataGridTextColumn Header="Model Size Z" Binding="{Binding Value.Size.Z}" />
-                <DataGridTextColumn Header="Model Centre Point X" Binding="{Binding Value.Centre}" />
-                <DataGridTextColumn Header="Model Centre Point Y" Binding="{Binding Value.Centre.Y}" />
-                <DataGridTextColumn Header="Model Centre Point Z" Binding="{Binding Value.Centre.Z}" />
-            </DataGrid.Columns>-->
-        </DataGrid>
+        <TabControl Name="tabControl1">
+            <TabItem Header="Data">
+                <DataGrid x:Name="dataGrid">
+                </DataGrid>
+            </TabItem>
+            <TabItem Header="View" >
+                <Canvas Name="canvas">
+                </Canvas>
+            </TabItem>
+        </TabControl>
 
     </Grid>
 </Window>
