@@ -1,0 +1,26 @@
+﻿<Window x:Class="XbimFederationChecker.ResultWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:XbimFederationChecker"
+        mc:Ignorable="d"
+        Title="Results" Height="951.351" Width="615.315">
+    <Grid>
+        <DataGrid x:Name="dataGrid">
+            <!--<DataGrid.Columns>
+                <DataGridTextColumn Header="Model" Binding="{Binding ModelName}" />
+                <DataGridTextColumn Header="World Coordinate Offset X" Binding="{Binding Value.WorldCoordinateSystem.OffsetX}" />
+                <DataGridTextColumn Header="World Coordinate Offset Y" Binding="{Binding Value.WorldCoordinateSystem.OffsetY}" />
+                <DataGridTextColumn Header="World Coordinate Offset Z" Binding="{Binding Value.WorldCoordinateSystem.OffsetZ}" />
+                <DataGridTextColumn Header="Model Size X" Binding="{Binding Value.Size}" />
+                <DataGridTextColumn Header="Model Size Y" Binding="{Binding Value.Size.Y}" />
+                <DataGridTextColumn Header="Model Size Z" Binding="{Binding Value.Size.Z}" />
+                <DataGridTextColumn Header="Model Centre Point X" Binding="{Binding Value.Centre}" />
+                <DataGridTextColumn Header="Model Centre Point Y" Binding="{Binding Value.Centre.Y}" />
+                <DataGridTextColumn Header="Model Centre Point Z" Binding="{Binding Value.Centre.Z}" />
+            </DataGrid.Columns>-->
+        </DataGrid>
+
+    </Grid>
+</Window>
