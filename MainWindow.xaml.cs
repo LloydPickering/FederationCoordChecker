@@ -62,13 +62,14 @@ namespace XbimFederationChecker
             };
 
             worker.DoWork += Process;
-            worker.RunWorkerAsync(dir);
+            worker.RunWorkerAsync(new { Dir = dir, AutoAdjust = adjustWCS.IsChecked });
             
         }
         void Process(object w, DoWorkEventArgs args)
         {
             var worker = w as BackgroundWorker;
-            var dir = args.Argument as string;
+            var dir = ((dynamic)args.Argument).Dir as String;
+            var AutoAdjustWCS = (((dynamic)args.Argument).AutoAdjust as Boolean?).Value;
             var dirInfo = new DirectoryInfo(dir);
 
             var Results = new List<Result>();
@@ -80,7 +81,7 @@ namespace XbimFederationChecker
                 {
                     m.CreateFrom(f.FullName, System.IO.Path.ChangeExtension(f.FullName, ".xbim"), worker.ReportProgress, true, true);
                     var m3d = new Xbim.ModelGeometry.Scene.Xbim3DModelContext(m);
-                    m3d.CreateContext(XbimGeometry.Interfaces.XbimGeometryType.PolyhedronBinary, worker.ReportProgress);
+                    m3d.CreateContext(XbimGeometry.Interfaces.XbimGeometryType.PolyhedronBinary, worker.ReportProgress, adjustWCS: AutoAdjustWCS);
                     var region = m3d.GetLargestRegion();
                     Results.Add(new Result(f.Name, region));
                 }

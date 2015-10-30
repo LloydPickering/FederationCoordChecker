@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:XbimFederationChecker"
         mc:Ignorable="d"
-        Title="MainWindow" Height="109" Width="525">
-    <Grid>
+        Title="MainWindow" Height="125" Width="530">
+    <Grid Margin="0,0,0,0">
         <Button x:Name="button" Content="Browse..." HorizontalAlignment="Left" Margin="432,10,0,0" VerticalAlignment="Top" Width="75" Height="24" Click="browse_Click"/>
-        <Button x:Name="button1" Content="Start" HorizontalAlignment="Left" Margin="432,39,0,0" VerticalAlignment="Top" Width="75"  Height="24" Click="start_Click"/>
+        <Button x:Name="button1" Content="Start" HorizontalAlignment="Left" Margin="432,57,0,0" VerticalAlignment="Top" Width="75"  Height="24" Click="start_Click"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="24" Margin="10,10,0,0" TextWrapping="Wrap" Text="Directory Path To Ifc/IfcZips..." VerticalAlignment="Top" Width="417"/>
-        <TextBox x:Name="status" HorizontalAlignment="Left" Height="24" Margin="10,39,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="417" IsReadOnlyCaretVisible="True" IsReadOnly="True" IsUndoEnabled="False" Background="#FFDDDDDD"/>
+        <TextBox x:Name="status" HorizontalAlignment="Left" Height="24" Margin="10,57,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="417" IsReadOnlyCaretVisible="True" IsReadOnly="True" IsUndoEnabled="False" Background="#FFDDDDDD"/>
+        <CheckBox x:Name="adjustWCS" Content="Auto Adjust World Coordinates" HorizontalAlignment="Left" Margin="322,38,0,0" VerticalAlignment="Top" IsChecked="True"/>
 
     </Grid>
 </Window>
