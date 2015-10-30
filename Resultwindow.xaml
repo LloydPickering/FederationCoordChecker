@@ -12,8 +12,12 @@
                 <DataGrid x:Name="dataGrid">
                 </DataGrid>
             </TabItem>
-            <TabItem Header="View" >
-                <Canvas Name="canvas">
+            <TabItem Header="XY View" >
+                <Canvas Name="XYcanvas">
+                </Canvas>
+            </TabItem>
+            <TabItem Header="YZ View" >
+                <Canvas Name="YZcanvas">
                 </Canvas>
             </TabItem>
         </TabControl>
