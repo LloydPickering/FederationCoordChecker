@@ -74,8 +74,28 @@ namespace XbimFederationChecker
 
             var Results = new List<Result>();
 
+            var xbims = dirInfo.EnumerateFiles("*.*").Where(s => s.Extension == ".xbim");
+            foreach (var f in xbims)
+            {
+                worker.ReportProgress(0, String.Format("Starting Processing of {0}", f.Name));
+                using (var m = new Xbim.IO.XbimModel())
+                {
+                    m.Open(f.FullName, Xbim.XbimExtensions.XbimDBAccess.ReadWrite, worker.ReportProgress);
+                    var m3d = new Xbim.ModelGeometry.Scene.Xbim3DModelContext(m);
+                    if (!m3d.IsGenerated)
+                    {
+                        m3d.CreateContext(XbimGeometry.Interfaces.XbimGeometryType.PolyhedronBinary, worker.ReportProgress, adjustWCS: AutoAdjustWCS);
+                    }
+                    var region = m3d.GetLargestRegion();
+                    Results.Add(new Result(f.Name, region));
+                }
+                worker.ReportProgress(0, String.Format("Completed Processing of {0}", f.Name));
+            }
+
             foreach (var f in dirInfo.EnumerateFiles("*.*").Where(s => s.Extension == ".ifc" || s.Extension == ".ifczip"))
             {
+                if (File.Exists(System.IO.Path.ChangeExtension(f.FullName, ".xbim"))) continue;
+
                 worker.ReportProgress(0, String.Format("Starting Processing of {0}", f.Name));
                 using (var m = new Xbim.IO.XbimModel())
                 {
